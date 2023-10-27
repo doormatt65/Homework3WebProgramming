@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Question 10</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: #9999;
+      }
+      h1 {
+        text-align: center;
+      }
+      form {
+        width: calc(50% - 100px);
+        margin: 0 auto;
+      }
+      label {
+        display: inline-block;
+        width: 100px;
+      }
+      input {
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Compund Interest</h1>
+    <form action="./Q10.php" method="get">
+      <label for="principal">Principal</label>
+      <input type="text" id="principal" name="principal" />
+      <br />
+      <label for="rate">Rate</label>
+      <input type="text" id="rate" name="rate" />
+      <br />
+      <label for="years">Years</label>
+      <input type="text" id="years" name="years" />
+      <br />
+      <input type="submit" value="Submit" />
+      <input type="reset" value="Reset" />
+    </form>
+  </body>
+</html>

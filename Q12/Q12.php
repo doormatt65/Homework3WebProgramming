@@ -6,20 +6,19 @@
     </head>
 
     <?php
-    $u = $_GET['username'];
     $p = $_GET['password'];
 
-    function login($u, $p)
+    function login($p)
     {
-        if (($u == "admin" && $p == "password") || ($u == "user" && $p == "12345") || ($u == "guest" && $p == "guest") || ($u == "test" && $p == "test") || ($u == "matt" && $p == "cosc")) {
+        if ($p == "password" || $p == "Password" || $p == "PASSWORD" || $p == "pass" || $p == "PASS") {
             return true;
         } else {
             return false;
         }
     }
 
-    if (login($u, $p) == true) {
-        print "<h1 style='text-align: center'>Welcome $u!</h1><hr>";
+    if (login($p) == true) {
+        print "<h1 style='text-align: center'>Welcome!</h1><hr>";
         print "  <body>
         <h1 style='text-align: center'>Matthew Braun</h1>
         <h3 style='text-align: center'>Email: mbraun3@emich.edu - Phone: 734.487.2120 - Address: 106 Halle Library</h3>
@@ -67,6 +66,6 @@
     </body>";
 
     } else {
-        print "<h1 style='text-align: center'>Invalid username or password!</h1><hr>";
+        print "<h1 style='text-align: center'>Invalid password!</h1><hr>";
         print "<h1 style='text-align: center'> Access Denied!</h1>";
     }

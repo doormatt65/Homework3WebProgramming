@@ -69,3 +69,4 @@
         print "<h1 style='text-align: center'>Invalid password!</h1><hr>";
         print "<h1 style='text-align: center'> Access Denied!</h1>";
     }
+    ?>

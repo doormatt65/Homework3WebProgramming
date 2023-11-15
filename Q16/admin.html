@@ -2,14 +2,14 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Q16 - Exam</title>
+    <title>Q16 - Admin Login</title>
     <style>
       body {
         background-color: #e09a9a;
       }
       #login {
         width: 300px;
-        height: 300px;
+        height: 200px;
         margin: 0 auto;
         margin-top: 150px;
         border: 1px solid #ccc;
@@ -26,8 +26,8 @@
 
   <body>
     <div id="login">
-      <h1>Enter Passcode To Sign In:</h1>
-      <form action="Q16.php" method="post">
+      <h1>Enter Passcode To View Grades:</h1>
+      <form action="admin.php" method="post">
         <input
           type="password"
           name="passcode"
@@ -36,9 +36,7 @@
         />
         <input type="submit" value="Sign In" />
       </form>
-      <p>Valid user passcodes:</p>
-      <p>1111, 2222, 3333, 4444, 5555,</p>
-      <p>6666, 7777, 8888, 9999, 0000</p>
+      <p>admin passcode is: 12345</p>
     </div>
   </body>
 </html>

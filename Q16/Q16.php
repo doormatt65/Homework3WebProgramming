@@ -69,7 +69,7 @@
     $conn->query($passTable);
 
 
-    $passInit = "INSERT INTO students(name,passcode) VALUES ('John','1111'),('Jane','2222'),('Joe','3333'),('Jill','4444'),('Jack','5555'),('Jen','6666'),('Jim','7777'),('Jade','8888'),('Matt','9999')";
+    $passInit = "INSERT INTO students(name,passcode) VALUES ('John','1111'),('Jane','2222'),('Joe','3333'),('Jill','4444'),('Jack','5555'),('Jen','6666'),('Jim','7777'),('Jade','8888'),('Matt','9999'),('Tim','0000')";
     //only initialize values if the table was just created
     if ($flag == "new") {
         if ($conn->query($passInit) === False) {
@@ -113,15 +113,22 @@
         print "<form action='grading.php' method='post'>";
         print "<h1>Exam</h1>";
         for ($i = 0; $i < 5; $i++) {
-            $examQuestion = $conn->query("SELECT * FROM exam WHERE question = '$questionList[$i]'");
-            $row = $examQuestion->fetch_assoc();
+            $examQuestion = $conn->query("SELECT * FROM exam");
 
-            print "<h3>$row[question]</h3>";
-            print "<input type='radio' name='q$i' value='A'> $row[a1]<br>";
-            print "<input type='radio' name='q$i' value='B'> $row[a2]<br>";
-            print "<input type='radio' name='q$i' value='C'> $row[a3]<br>";
-            print "<input type='radio' name='q$i' value='D'> $row[a4]<br>";
-            print "<br>";
+            if ($examQuestion->num_rows > 0) {
+                $i = 0;
+                while ($row = $examQuestion->fetch_assoc()) {
+                    print "<h3>$row[question]</h3>";
+                    print "<input type='radio' name='q$i' value='A'> $row[a1]<br>";
+                    print "<input type='radio' name='q$i' value='B'> $row[a2]<br>";
+                    print "<input type='radio' name='q$i' value='C'> $row[a3]<br>";
+                    print "<input type='radio' name='q$i' value='D'> $row[a4]<br>";
+                    print "<br>";
+                    $i++;
+                }
+            } else {
+                echo "0 results";
+            }
         }
         print "<input type='password' name='passcode'>";
         print "<input type='submit' value='Submit Exam'>";

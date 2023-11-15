@@ -22,6 +22,26 @@
         color: #fff;
       }
     </style>
+    <script>
+      function checkForm() {
+        // Loop through radio buttons to check if any option is selected
+        for (var i = 0; i < 5; i++) {
+          var radioGroup = document.getElementsByName("q" + i);
+          var isChecked = false;
+          for (var j = 0; j < radioGroup.length; j++) {
+            if (radioGroup[j].checked) {
+              isChecked = true;
+              break;
+            }
+          }
+          // If no option is selected, set a default value
+          if (!isChecked) {
+            radioGroup[0].value = "";
+          }
+        }
+        return true; // Continue with form submission
+      }
+    </script>
   </head>
 
   <body>

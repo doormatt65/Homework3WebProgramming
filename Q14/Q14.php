@@ -23,10 +23,11 @@
 <body>
     <?php
 
+
     $conn = mysqli_connect(
         "localhost",
         "root",
-        ""
+        "",
     );
 
     if (mysqli_connect_errno()) {

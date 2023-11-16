@@ -59,7 +59,7 @@
         print "<h1>Survey Results</h1>";
         $sql_select = "SELECT * FROM survey";
 
-        $result = $conn->query($sql_select);
+        $result = mysqli_query($conn, "$sql_select");
         print "<table border='1'>";
         print "<tr>
     <td>Question:</td>
@@ -69,48 +69,50 @@
 
         $q1y = $q1n = $q2y = $q2n = $q3y = $q3n = $q4y = $q4n = $q5y = $q5n = $q1c = $q2c = $q3c = $q4c = $q5c = 0;
 
-        if ($result->num_rows > 0) {
-            // output data of each row
-            while ($row = $result->fetch_assoc()) {
 
-                if ($row['q1'] == 'Yes') {
-                    $q1y++;
-                    $q1c++;
-                } else if ($row['q1'] == 'No') {
-                    $q1n++;
-                    $q1c++;
-                }
+        for ($i = 0; $i < mysqli_num_rows($result); $i++) {
+            $row = mysqli_fetch_assoc($result);
 
-                if ($row['q2'] == 'Yes') {
-                    $q2y++;
-                    $q2c++;
-                } else if ($row['q2'] == 'No') {
-                    $q2n++;
-                    $q2c++;
-                }
-                if ($row['q3'] == 'Yes') {
-                    $q3y++;
-                    $q3c++;
-                } else if ($row['q3'] == 'No') {
-                    $q3n++;
-                    $q3c++;
-                }
-                if ($row['q4'] == 'Yes') {
-                    $q4y++;
-                    $q4c++;
-                } else if ($row['q4'] == 'No') {
-                    $q4n++;
-                    $q4c++;
-                }
-                if ($row['q5'] == 'Yes') {
-                    $q5y++;
-                    $q5c++;
-                } else if ($row['q5'] == 'No') {
-                    $q5n++;
-                    $q5c++;
-                }
 
+
+            if ($row['q1'] == 'Yes') {
+                $q1y++;
+                $q1c++;
+            } else if ($row['q1'] == 'No') {
+                $q1n++;
+                $q1c++;
             }
+
+            if ($row['q2'] == 'Yes') {
+                $q2y++;
+                $q2c++;
+            } else if ($row['q2'] == 'No') {
+                $q2n++;
+                $q2c++;
+            }
+            if ($row['q3'] == 'Yes') {
+                $q3y++;
+                $q3c++;
+            } else if ($row['q3'] == 'No') {
+                $q3n++;
+                $q3c++;
+            }
+            if ($row['q4'] == 'Yes') {
+                $q4y++;
+                $q4c++;
+            } else if ($row['q4'] == 'No') {
+                $q4n++;
+                $q4c++;
+            }
+            if ($row['q5'] == 'Yes') {
+                $q5y++;
+                $q5c++;
+            } else if ($row['q5'] == 'No') {
+                $q5n++;
+                $q5c++;
+            }
+
+
         }
         $q1y = round(($q1y / $q1c) * 100, 2);
         $q1n = round(($q1n / $q1c) * 100, 2);

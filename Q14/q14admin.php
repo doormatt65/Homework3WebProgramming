@@ -73,8 +73,6 @@
         for ($i = 0; $i < mysqli_num_rows($result); $i++) {
             $row = mysqli_fetch_assoc($result);
 
-
-
             if ($row['q1'] == 'Yes') {
                 $q1y++;
                 $q1c++;
@@ -114,6 +112,7 @@
 
 
         }
+
         $q1y = round(($q1y / $q1c) * 100, 2);
         $q1n = round(($q1n / $q1c) * 100, 2);
         $q2y = round(($q2y / $q2c) * 100, 2);

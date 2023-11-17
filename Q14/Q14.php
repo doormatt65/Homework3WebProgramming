@@ -1,84 +1,79 @@
 <!DOCTYPE html>
-<html>
+
+<html lang="en">
 
 <head>
-    <meta charset=utf-8 />
-    <Title>Survey - Q14</Title>
-    <style>
-        body {
-            background-color: rgb(171, 137, 202);
+  <meta charset="UTF-8" />
+  <title>Survey - Q14</title>
+  <style>
+    body {
+      background-color: rgb(171, 137, 202);
+    }
 
-        }
+    table {
+      width: 100%;
+    }
 
-        h1 {
-            text-align: center;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-    </style>
+    div {
+      width: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    input {
+      margin: 10px;
+    }
+  </style>
 </head>
 
 <body>
+  <h1>Question 14 Survey</h1>
+  <div>
     <?php
-
-
     $conn = mysqli_connect(
-        "localhost",
-        "root",
-        "",
-        "q14"
+      "localhost",
+      "root",
+      "",
+      "q14"
     );
-
     if (mysqli_connect_errno()) {
-        print "not connected";
+      print "not connected";
     }
-
-    //CREATE DATABASE q14
-    //use q14
-    //CREATE TABLE survey(p int, q1 VARCHAR(3), q2 VARCHAR(3), q3 VARCHAR(3), q4 VARCHAR(3), q5 VARCHAR(3))
+    //CREATE DATABASE q14;
+    //USE q14;
+    //CREATE TABLE passcodes(p VARCHAR(4),taken VARCHAR(3));
+    //INSERT INTO passcodes VALUES ("0000", "no"), ("1111", "no"), ("2222", "no"), ("3333", "no"), ("4444", "no"), ("5555", "no"), ("6666", "no"), ("7777", "no"), ("8888", "no"), ("9999", "no");
+    //CREATE TABLE survey(p int, q1 VARCHAR(3), q2 VARCHAR(3), q3 VARCHAR(3), q4 VARCHAR(3), q5 VARCHAR(3));
+    //CREATE TABLE questions(q VARCHAR(100));
+    //INSERT INTO questions VALUES ("Is CSS fun?"), ("Is HTML fun?"), ("Is PHP fun?"), ("Is JavaScript fun?"), ("Is SQL fun?");
     
+    $qquery = mysqli_query($conn, "SELECT q FROM questions");
+    print "<form action='Q14-recording.php' method='POST'>";
+    print "<table>";
 
-    $q1 = $_POST['question1'] ?? "N/A";
-    $q2 = $_POST['question2'] ?? "N/A";
-    $q3 = $_POST['question3'] ?? "N/A";
-    $q4 = $_POST['question4'] ?? "N/A";
-    $q5 = $_POST['question5'] ?? "N/A";
-    $p = $_POST['passcode'] ?? "";
+    $i = 1;
+    while ($question = mysqli_fetch_assoc($qquery)) {
 
-
-    $passcodeList = array("1234", "4321", "1111", "2222", "3333", "4444", "5555", "6666", "7777", "8888", "9999");
-    $hasTaken = mysqli_query($conn, "SELECT p FROM survey WHERE p = '$p'");
-    if (mysqli_num_rows($hasTaken) > 0) {
-        echo "<h1>Passcode already used!</h1>";
-
-
-
-    } else if (in_array($p, $passcodeList)) {
-        $sql_insert = "INSERT INTO survey (p,q1,q2,q3,q4,q5) VALUES ('$p','$q1','$q2','$q3','$q4','$q5')";
-
-        mysqli_query($conn, $sql_insert);
-        echo "<h1>Thank you for your response!</h1>";
-
-
-        $sql_select = "SELECT * FROM survey";
-
-
-        $result = mysqli_query($conn, "$sql_select");
-
-
-
-
-    } else {
-        echo "<h1>Invalid Passcode!</h1>";
+      $printquestion = $question['q'];
+      print "<tr><td>$printquestion</td>";
+      print "<td><input type='radio' name='question$i' value='Yes'>Yes</td>";
+      print "<td><input type='radio' name='question$i' value='No'>No</td>";
+      print "</tr><br>";
+      $i++;
     }
-
-
-
-
+    print "</table>";
+    print "<br>";
+    print "<input type='text' name='passcode' placeholder='Passcode'>";
+    print "<br>";
+    print "<input type='submit' value='Submit'>";
+    print "<input type='reset' value='Reset'>";
+    print "</form>";
     ?>
-
+  </div>
 </body>
-
-</html>

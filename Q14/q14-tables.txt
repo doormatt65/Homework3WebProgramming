@@ -1,0 +1,42 @@
+q14
++---------------+
+| Tables_in_q14 |
++---------------+
+| passcodes     |
+| questions     |
+| survey        |
++---------------+
+
+passcodes(p VARCHAR(4),taken VARCHAR(3));
++------+-------+
+| p    | taken |
++------+-------+
+| 0000 | no    |
+| 1111 | no    |
+| 2222 | no    |
+| 3333 | no    |
+| 4444 | no    |
+| 5555 | no    |
+| 6666 | no    |
+| 7777 | no    |
+| 8888 | no    |
+| 9999 | no    |
++------+-------+
+
+questions(q VARCHAR(100));
++--------------------+
+| q                  |
++--------------------+
+| Is CSS fun?        |
+| Is HTML fun?       |
+| Is PHP fun?        |
+| Is JavaScript fun? |
+| Is SQL fun?        |
++--------------------+
+
+
+survey(p int, q1 VARCHAR(3), q2 VARCHAR(3), q3 VARCHAR(3), q4 VARCHAR(3), q5 VARCHAR(3));
++--------------------------+
+| p | q1 |q2 |q3 | q4 | q5 |               
++--------------------------+
+|   |  empty set |    |    |

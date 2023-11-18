@@ -1,0 +1,46 @@
+q16
++---------------+
+| Tables_in_q16 |
++---------------+
+| admin         |
+| exam          |
+| students      |
++---------------+
+
+
+admin (passcode INT(5));
++----------+
+| passcode |
++----------+
+|    12345 |
++----------+
+
+
+exam(question VARCHAR(100), a1 VARCHAR(100), a2 VARCHAR(100), a3 VARCHAR(100), a4 VARCHAR(100), solution VARCHAR(1));
++------------------------------+------------+----------------+-----------+-------------+----------+
+| question                     | a1         | a2             | a3        | a4          | solution |
++------------------------------+------------+----------------+-----------+-------------+----------+
+| What is CSS used for?        | A. Styling | B. Programming | C. Markup | D. Querying | A        |
+| What is HTML used for?       | A. Styling | B. Programming | C. Markup | D. Querying | C        |
+| What is Python used for?     | A. Styling | B. Programming | C. Markup | D. Querying | B        |
+| What is JavaScript used for? | A. Styling | B. Programming | C. Markup | D. Querying | B        |
+| What is SQL used for?        | A. Styling | B. Programming | C. Markup | D. Querying | D        |
++------------------------------+------------+----------------+-----------+-------------+----------+
+
+
+
+students(name VARCHAR(15),passcode VARCHAR(4), status VARCHAR(1) DEFAULT 'N',grade INT(100) DEFAULT 0);
++------+----------+--------+-------+
+| name | passcode | status | grade |
++------+----------+--------+-------+
+| John | 1111     | N      |     0 |
+| Jane | 2222     | N      |     0 |
+| Joe  | 3333     | N      |     0 |
+| Jill | 4444     | N      |     0 |
+| Jack | 5555     | N      |     0 |
+| Jen  | 6666     | N      |     0 |
+| Jim  | 7777     | N      |     0 |
+| Jade | 8888     | N      |     0 |
+| Matt | 9999     | N      |     0 |
+| Tim  | 0000     | N      |     0 |
++------+----------+--------+-------+

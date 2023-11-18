@@ -47,6 +47,7 @@
     }
 
     //CREATE DATABASE q16;
+    //USE q16;
     //CREATE TABLE students(name VARCHAR(15),passcode VARCHAR(4), status VARCHAR(1) DEFAULT 'N',grade INT(100) DEFAULT 0);
     //INSERT INTO students(name,passcode) VALUES ('John','1111'),('Jane','2222'),('Joe','3333'),('Jill','4444'),('Jack','5555'),('Jen','6666'),('Jim','7777'),('Jade','8888'),('Matt','9999'),('Tim','0000');
     //CREATE TABLE exam(question VARCHAR(100), a1 VARCHAR(100), a2 VARCHAR(100), a3 VARCHAR(100), a4 VARCHAR(100), solution VARCHAR(1));

@@ -35,12 +35,7 @@
         print "not connected";
     }
 
-    //CREATE DATABASE q14;
-    //USE q14;
-    //CREATE TABLE passcodes(p VARCHAR(4),taken VARCHAR(3));
-    //INSERT INTO passcodes VALUES ("0000", "no"), ("1111", "no"), ("2222", "no"), ("3333", "no"), ("4444", "no"), ("5555", "no"), ("6666", "no"), ("7777", "no"), ("8888", "no"), ("9999", "no");
-    //CREATE TABLE survey(p int, q1 VARCHAR(3), q2 VARCHAR(3), q3 VARCHAR(3), q4 VARCHAR(3), q5 VARCHAR(3));
-    
+
     $q1 = $_POST['question1'] ?? "N/A";
     $q2 = $_POST['question2'] ?? "N/A";
     $q3 = $_POST['question3'] ?? "N/A";
